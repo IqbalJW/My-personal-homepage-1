@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maha Paduka Dashboard</title>
+    <style>
+        :root {
+            --bg-dark: #050d06;
+            --card-bg: linear-gradient(180deg, #0a1f0d 0%, #050d06 100%);
+            --accent-green: #4ade80;
+            --text-dim: rgba(255, 255, 255, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: var(--bg-dark);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Container Full Tinggi dari atas ke bawah */
+        .main-wrapper {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 500px;
+            min-height: 100vh;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-left: 1px solid rgba(74, 222, 128, 0.1);
+            border-right: 1px solid rgba(74, 222, 128, 0.1);
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+        }
+
+        /* Header & Clock */
+        .greeting {
+            color: var(--accent-green);
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .clock-section {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 30px;
+        }
+
+        #time {
+            font-size: 80px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        #seconds {
+            font-size: 24px;
+            color: var(--text-dim);
+            margin-left: 10px;
+        }
+
+        /* Search Bar */
+        .search-form {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 15px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-green);
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        /* Brick Grid System (Susunan Batu Bata) */
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            gap: 12px;
+            width: 100%;
+        }
+
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .shortcut-item:hover {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .shortcut-item img {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        .shortcut-item span {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Mengatur agar beberapa item tampak lebih lebar seperti bata */
+        .shortcut-item.wide {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="greeting" id="greet">SELAMAT SORE, MAHA PADUKA IQBAL</div>
+        
+        <div class="clock-section">
+            <span id="time">00:00</span>
+            <span id="seconds">00</span>
+        </div>
+
+        <form action="https://www.google.com/search" method="get" class="search-form">
+            <input type="text" name="q" class="search-input" placeholder="Tanya pada dunia..." autocomplete="off">
+        </form>
+
+        <div class="shortcut-grid">
+            <a href="https://google.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=google.com" alt="">
+                <span>Google</span>
+            </a>
+            <a href="https://github.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=github.com" alt="">
+                <span>GitHub</span>
+            </a>
+            <a href="https://youtube.com" class="shortcut-item wide">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com" alt="">
+                <span>YouTube Music / Video</span>
+            </a>
+            <a href="https://facebook.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=facebook.com" alt="">
+                <span>Facebook</span>
+            </a>
+            <a href="https://instagram.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" alt="">
+                <span>Instagram</span>
+            </a>
+            <a href="https://chatgpt.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=openai.com" alt="">
+                <span>ChatGPT</span>
+            </a>
+            <a href="https://whatsapp.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=whatsapp.com" alt="">
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://reddit.com" class="shortcut-item wide">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=reddit.com" alt="">
+                <span>Reddit Community</span>
+            </a>
+            <a href="https://twitter.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=twitter.com" alt="">
+                <span>Twitter / X</span>
+            </a>
+            <a href="https://canva.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=canva.com" alt="">
+                <span>Canva Design</span>
+            </a>
+            <a href="https://netflix.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=netflix.com" alt="">
+                <span>Netflix</span>
+            </a>
+            <a href="https://spotify.com" class="shortcut-item">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=spotify.com" alt="">
+                <span>Spotify</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function updateDisplay() {
+            const now = new Date();
+            let h = now.getHours();
+            let m = String(now.getMinutes()).padStart(2, '0');
+            let s = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('time').textContent = `${String(h).padStart(2, '0')}:${m}`;
+            document.getElementById('seconds').textContent = s;
+
+            let status = (h >= 5 && h < 11) ? "PAGI" : (h >= 11 && h < 15) ? "SIANG" : (h >= 15 && h < 19) ? "SORE" : "MALAM";
+            document.getElementById('greet').textContent = `SELAMAT ${status}, MAHA PADUKA IQBAL`;
+        }
+        setInterval(updateDisplay, 1000);
+        updateDisplay();
+    </script>
+</body>
+</html>
